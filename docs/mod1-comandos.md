@@ -79,6 +79,8 @@ dotnet --version          # Verificar versión de .NET
 claude doctor             # Verificar Claude Code
 ```
 
+Comandos classe: 2
+
 ---
 
 ## [dotnet CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) - Información
@@ -94,22 +96,13 @@ dotnet --list-runtimes    # Listar todos los runtimes instalados
 
 ## [dotnet new](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new) - Templates
 
-> Comando para crear proyectos a partir de templates predefinidos.
+> Comando para ver proyectos a partir de templates predefinidos.
 
 ```bash
 # Listar templates disponibles
 dotnet new list
-dotnet new list --tag Web
-dotnet new list --tag Common
-
-# Crear proyectos
-dotnet new console -n MiApp                  # App de consola
-dotnet new webapi -n MiApi                   # API (Minimal APIs)
-dotnet new blazor -n MiWeb                   # Blazor Web App
-dotnet new classlib -n MiLibreria            # Librería de clases
-
-# Crear proyecto en carpeta específica
-dotnet new console -n MiApp -o src/MiApp
+dotnet new list --tag blazor
+dotnet new list --tag api
 ```
 
 ## dotnet CLI - Ciclo de desarrollo
@@ -124,6 +117,14 @@ dotnet publish            # Publicar para producción
 dotnet test               # Ejecutar tests
 ```
 
+# Crear proyectos ejemplo de consola
+
+```bash
+dotnet new console -n Bienvenida       # App de consola
+
+# ahora si ejecutar dentro de este proyecto, los comandos build, run y watch
+```
+
 ## [dotnet tool](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install) - Herramientas globales
 
 > Gestión de herramientas CLI que se instalan como paquetes NuGet.
@@ -135,32 +136,39 @@ dotnet tool update -g dotnet-ef        # Actualizar herramienta
 dotnet tool uninstall -g dotnet-ef     # Desinstalar herramienta
 ```
 
+Comandos classe: 3
+
 ---
 
-## Solución y proyectos
+## [dotnet new](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new) - Templates
 
-### [Crear la solución](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new#create-a-solution)
+> Comando para crear proyectos a partir de templates predefinidos.
 
 ```bash
+# Crear proyectos: Ejemplos
+dotnet new console -n EDChat.Console -o src/EDChat.Console       # App de consola
+dotnet new webapi -n EDChat.Api -o src/EDChat.Api                # API (Minimal APIs)
+dotnet new blazor -n EDChat.Web -o src/EDChat.Web                # Blazor Web App
+dotnet new classlib -n EDChat.Data -o src/EDChat.Data            # Librería de clases
+
+# En .NET manejamos soluciones, una solucion puede tener multiples proyectos dentro
+
+# Crear una solucion para EDChat (dentro de la carpeta net10)
 dotnet new sln -n EDChat
-```
 
-### Crear los proyectos del curso
-
-```bash
+# Crear proyecto en carpeta específica (dentro de src)
 dotnet new console -n EDChat.Console -o src/EDChat.Console
-dotnet new webapi -n EDChat.Api -o src/EDChat.Api
-dotnet new blazor -n EDChat.Web -o src/EDChat.Web
-dotnet new classlib -n EDChat.Data -o src/EDChat.Data
 ```
+
+---
 
 ### [Agregar proyectos a la solución](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-sln#add)
 
 ```bash
-dotnet sln add src/EDChat.Console
-dotnet sln add src/EDChat.Api
-dotnet sln add src/EDChat.Web
-dotnet sln add src/EDChat.Data
+dotnet sln EDChat.slnx add src/EDChat.Console
+dotnet sln EDChat.slnx add src/EDChat.Api
+dotnet sln EDChat.slnx add src/EDChat.Web
+dotnet sln EDChat.slnx add src/EDChat.Data
 ```
 
 ### Compilar y ejecutar un proyecto específico
@@ -171,6 +179,8 @@ dotnet run --project src/EDChat.Console
 dotnet run --project src/EDChat.Api
 dotnet run --project src/EDChat.Web
 ```
+
+Comandos classe: 4
 
 ---
 
@@ -188,6 +198,12 @@ claude                    # Iniciar sesión
 /init                     # Crear archivo CLAUDE.md
 /doctor                   # Verificar instalación
 /help                     # Ver ayuda
+
+# otros
+/status
+/model
+/clear
+/compact
 exit                      # Salir (o Ctrl+C)
 ```
 
