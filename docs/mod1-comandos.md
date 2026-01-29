@@ -1,6 +1,37 @@
 # Mod 1: .NET 10
 
-Comandos del Módulo 1
+Comandos del Mod 1
+
+---
+
+### Carpeta del proyecto - EDChat
+
+> Todo lo trabajaremos en la carpeta net10
+
+```bash
+# aca estara la solucion mas lo 4 proyectos
+mkdir net10
+
+```
+
+## Estructura final del proyecto
+
+```
+EDChat/
+├── src/
+│   ├── EDChat.Console/   # Mod1 - App de consola
+│   ├── EDChat.Api/       # Mod2 - Minimal APIs
+│   ├── EDChat.Web/       # Mod3 - Blazor Web App
+│   └── EDChat.Data/      # Mod4 - EF Core (class library)
+├── docs/
+│   ├── mod1-comandos.md
+│   ├── mod2-comandos.md
+│   ├── mod3-comandos.md
+│   └── mod4-comandos.md
+├── EDChat.slnx
+├── CLAUDE.md
+└── .gitignore
+```
 
 ---
 
@@ -34,11 +65,11 @@ curl -fsSL https://claude.ai/install.sh | bash
 # macOS (Homebrew)
 brew install --cask claude-code
 
-# Windows (PowerShell)
-irm https://claude.ai/install.ps1 | iex
-
 # Windows (WinGet)
 winget install Anthropic.ClaudeCode
+
+# Windows (PowerShell)
+irm https://claude.ai/install.ps1 | iex
 ```
 
 ### Verificación del entorno
@@ -162,24 +193,5 @@ exit                      # Salir (o Ctrl+C)
 
 ---
 
-## Estructura final del proyecto
 
-```
-EDChat/
-├── src/
-│   ├── EDChat.Console/   # Módulo 1 - App de consola
-│   ├── EDChat.Api/       # Módulo 2 - Minimal APIs
-│   ├── EDChat.Web/       # Módulo 3 - Blazor Web App
-│   └── EDChat.Data/      # Módulo 4 - EF Core (class library)
-├── docs/
-│   ├── modulo1-comandos.md
-│   ├── modulo2-comandos.md
-│   ├── modulo3-comandos.md
-│   └── modulo4-comandos.md
-├── EDChat.slnx
-├── CLAUDE.md
-└── .gitignore
-```
-
----
 
