@@ -1,6 +1,6 @@
 # Mod 1: .NET 10
 
-Comandos del Mod 1
+Comandos classe: 1
 
 ---
 
