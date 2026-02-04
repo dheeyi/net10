@@ -1,0 +1,14 @@
+/Users/williambarra/Projects/edteam/net10/Bienvenida/bin/Debug/net10.0/Bienvenida
+/Users/williambarra/Projects/edteam/net10/Bienvenida/bin/Debug/net10.0/Bienvenida.deps.json
+/Users/williambarra/Projects/edteam/net10/Bienvenida/bin/Debug/net10.0/Bienvenida.runtimeconfig.json
+/Users/williambarra/Projects/edteam/net10/Bienvenida/bin/Debug/net10.0/Bienvenida.dll
+/Users/williambarra/Projects/edteam/net10/Bienvenida/bin/Debug/net10.0/Bienvenida.pdb
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/Bienvenida.GeneratedMSBuildEditorConfig.editorconfig
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/Bienvenida.AssemblyInfoInputs.cache
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/Bienvenida.AssemblyInfo.cs
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/Bienvenida.csproj.CoreCompileInputs.cache
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/Bienvenida.dll
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/refint/Bienvenida.dll
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/Bienvenida.pdb
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/Bienvenida.genruntimeconfig.cache
+/Users/williambarra/Projects/edteam/net10/Bienvenida/obj/Debug/net10.0/ref/Bienvenida.dll
