@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ioTXZwOba5s=",
+  "success": true,
+  "projectFilePath": "/Users/williambarra/Projects/edteam/net10/src/EDChat.Api/EDChat.Api.csproj",
+  "expectedPackageFiles": [
+    "/Users/williambarra/.nuget/packages/microsoft.aspnetcore.openapi/10.0.2/microsoft.aspnetcore.openapi.10.0.2.nupkg.sha512",
+    "/Users/williambarra/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512",
+    "/Users/williambarra/.nuget/packages/scalar.aspnetcore/2.12.36/scalar.aspnetcore.2.12.36.nupkg.sha512"
+  ],
+  "logs": []
+}

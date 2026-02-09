@@ -341,22 +341,24 @@ mkdir DTOs
 ### Prompt para Claude Code
 
 ```text
-En la carpeta DTOs/ de EDChat.Api, crea tres archivos:
+En la carpeta DTOs/ de EDChat.Api, crea tres archivos usando records posicionales. Namespace: EDChat.Api.DTOs. Importar System.ComponentModel.DataAnnotations donde se   
+  usen anotaciones.                                                                                                                                                        
+                                                                                                                                                                           
+  UserDto.cs - dos records:
+  - UserDto(int Id, string Username, DateTime CreatedAt)
+  - CreateUserDto([Required(ErrorMessage = "El nombre de usuario es requerido")] [MaxLength(50, ErrorMessage = "El nombre de usuario no puede exceder 50 caracteres")]
+  string Username)
 
-UserDto.cs - dos records:
-- UserDto(int Id, string Username, DateTime CreatedAt)
-- CreateUserDto con Username que tenga [Required(ErrorMessage = "El nombre de usuario es requerido")] y [MaxLength(50, ErrorMessage = "El nombre de usuario no puede exceder 50 caracteres")]
+  RoomDto.cs - tres records:
+  - RoomDto(int Id, string Name, string Description, DateTime CreatedAt)
+  - CreateRoomDto([Required(ErrorMessage = "El nombre de la sala es requerido")] [MaxLength(100, ErrorMessage = "El nombre no puede exceder 100 caracteres")] string Name,
+  [MaxLength(500, ErrorMessage = "La descripcion no puede exceder 500 caracteres")] string Description = "")
+  - UpdateRoomDto con las mismas anotaciones y parámetros que CreateRoomDto
 
-RoomDto.cs - tres records:
-- RoomDto(int Id, string Name, string Description, DateTime CreatedAt)
-- CreateRoomDto con Name que tenga [Required(ErrorMessage = "El nombre de la sala es requerido")] y [MaxLength(100, ErrorMessage = "El nombre no puede exceder 100 caracteres")], y Description con [MaxLength(500, ErrorMessage = "La descripcion no puede exceder 500 caracteres")] y default ""
-- UpdateRoomDto con las mismas anotaciones que CreateRoomDto
-
-MessageDto.cs - dos records:
-- MessageDto(int Id, string Content, DateTime SentAt, int UserId, string Username, int RoomId)
-- CreateMessageDto con Content que tenga [Required(ErrorMessage = "El contenido del mensaje es requerido")] y [MaxLength(2000, ErrorMessage = "El mensaje no puede exceder 2000 caracteres")], mas int UserId y string Username
-
-Namespace: EDChat.Api.DTOs. Importar System.ComponentModel.DataAnnotations donde se usen anotaciones.
+  MessageDto.cs - dos records:
+  - MessageDto(int Id, string Content, DateTime SentAt, int UserId, string Username, int RoomId)
+  - CreateMessageDto([Required(ErrorMessage = "El contenido del mensaje es requerido")] [MaxLength(2000, ErrorMessage = "El mensaje no puede exceder 2000 caracteres")]
+  string Content, int UserId, string Username)
 ```
 
 ### Codigo esperado

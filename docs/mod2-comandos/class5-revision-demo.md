@@ -5,20 +5,19 @@
 
 ## Capitulo 1: Endpoints funcionando end-to-end
 
-### Explicacion
+### Flujo completo
 
-Script completo que demuestra todo lo construido en las clases 1-4.
 
-### Comandos
+### Opcion A: Interfaz Grafica
+
 
 ```bash
-# Iniciar el proyecto
-cd src/EDChat.Api
-dotnet run &
-
-# Esperar que inicie
-sleep 2
+ http://localhost:5001/scalar/v1
 ```
+
+### Opcion B: Comandos
+
+Suando Postman,Insomnia para hacer las pruebas, o usar `curl` desde la terminal.
 
 #### 1. Listar salas (datos seed)
 

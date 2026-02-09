@@ -1,2 +1,5 @@
 <Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EDChat.Api/EDChat.Api.csproj" />
+  </Folder>
 </Solution>
