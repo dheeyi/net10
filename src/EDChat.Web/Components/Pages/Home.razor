@@ -1,0 +1,64 @@
+@page "/"
+@inject NavigationManager Navigation
+@inject ApiClient ApiClient
+@inject ISnackbar Snackbar
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="d-flex flex-column align-center justify-center" Style="height: 100vh;">
+    <MudCard Class="pa-4" Style="width: 100%;">
+        <MudCardContent>
+            <MudText Typo="Typo.h4" Align="Align.Center" Class="mb-4">EDChat</MudText>
+            <MudTextField @bind-Value="username"
+                          Label="Nombre de usuario"
+                          Variant="Variant.Outlined"
+                          Disabled="isLoading" />
+        </MudCardContent>
+        <MudCardActions Class="d-flex justify-center">
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       OnClick="Login"
+                       Disabled="isLoading || string.IsNullOrWhiteSpace(username)">
+                @if (isLoading)
+                {
+                    <MudProgressCircular Size="Size.Small" Indeterminate="true" Class="mr-2" />
+                    <MudText>Conectando...</MudText>
+                }
+                else
+                {
+                    <MudText>Ingresar</MudText>
+                }
+            </MudButton>
+        </MudCardActions>
+    </MudCard>
+</MudContainer>
+
+@code {
+    private string? username;
+    private bool isLoading;
+
+    private async Task Login()
+    {
+        if (string.IsNullOrWhiteSpace(username)) return;
+
+        isLoading = true;
+        try
+        {
+            var user = await ApiClient.LoginAsync(username);
+            if (user is not null)
+            {
+                Navigation.NavigateTo("/chat");
+            }
+            else
+            {
+                Snackbar.Add("Error al conectar con el servidor", Severity.Error);
+            }
+        }
+        catch
+        {
+            Snackbar.Add("Error al conectar con el servidor", Severity.Error);
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}

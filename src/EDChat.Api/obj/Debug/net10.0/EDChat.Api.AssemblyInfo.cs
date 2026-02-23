@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EDChat.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcbf6a3b2379fc097b88451181efc93ed7ec949e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8807485eb29e71aa9061cb0bd5a0f5dcc8f975ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("EDChat.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EDChat.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

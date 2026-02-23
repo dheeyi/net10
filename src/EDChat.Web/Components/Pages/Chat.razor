@@ -1,0 +1,211 @@
+@page "/chat"
+@implements IAsyncDisposable
+@inject NavigationManager Navigation
+@inject ChatService ChatService
+@inject ApiClient ApiClient
+@inject IConfiguration Configuration
+@inject ISnackbar Snackbar
+
+<MudAppBar Elevation="2">
+    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" OnClick="() => drawerOpen = !drawerOpen" />
+    <MudIcon Icon="@Icons.Material.Filled.Chat" Class="mr-2" />
+    <MudText Typo="Typo.h6">EDChat</MudText>
+    <MudSpacer />
+    @if (isConnected)
+    {
+        <MudChip T="string" Color="Color.Success">Conectado</MudChip>
+    }
+    else
+    {
+        <MudChip T="string" Color="Color.Error">Desconectado</MudChip>
+    }
+    <MudButton Color="Color.Inherit" Variant="Variant.Text" OnClick="Logout">Cerrar sesion</MudButton>
+</MudAppBar>
+
+<MudDrawer @bind-Open="drawerOpen" Variant="DrawerVariant.Persistent">
+    <MudText Typo="Typo.h6" Class="pa-4">Salas</MudText>
+    @if (rooms.Count == 0)
+    {
+        <MudText Class="pa-4" Typo="Typo.body2">Sin salas disponibles</MudText>
+    }
+    else
+    {
+        <MudNavMenu>
+            @foreach (var room in rooms)
+            {
+                <MudNavLink OnClick="() => SelectRoom(room)"
+                            Match="NavLinkMatch.All"
+                            Icon="@Icons.Material.Filled.Forum">
+                    @room.Name
+                </MudNavLink>
+            }
+        </MudNavMenu>
+    }
+</MudDrawer>
+
+<MudMainContent Class="pa-4" Style="margin-top: 64px;">
+    <MudPaper Class="pa-4" Style="height: calc(100vh - 140px); display: flex; flex-direction: column;">
+        <MudText Typo="Typo.h6" Class="mb-2">Sala: @(selectedRoom?.Name ?? "Sin sala")</MudText>
+
+        <div style="flex: 1; overflow-y: auto;">
+            @foreach (var message in messages)
+            {
+                <MudText Style="@(message.UserId == currentUserId ? "font-weight: bold" : "")">
+                    [@message.Timestamp.ToString("HH:mm")] @message.Username: @message.Content
+                </MudText>
+            }
+        </div>
+
+        <div style="display: flex; gap: 8px;">
+            <MudTextField @bind-Value="messageText"
+                          Placeholder="Escribe un mensaje..."
+                          Variant="Variant.Outlined"
+                          OnKeyDown="HandleKeyDown"
+                          Style="flex: 1;" />
+            <MudIconButton Icon="@Icons.Material.Filled.Send"
+                           Color="Color.Primary"
+                           OnClick="SendMessage" />
+        </div>
+    </MudPaper>
+</MudMainContent>
+
+@code {
+    private string Username => ApiClient.CurrentUser?.Username ?? string.Empty;
+
+    private List<MessageModel> messages = [];
+    private List<RoomModel> rooms = [];
+    private RoomModel? selectedRoom;
+    private string? messageText;
+    private int currentRoomId = 1;
+    private int currentUserId;
+    private bool isConnected;
+    private bool drawerOpen = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (ApiClient.CurrentUser is null)
+        {
+            Navigation.NavigateTo("/");
+            return;
+        }
+
+        try
+        {
+            currentUserId = ApiClient.CurrentUser.Id;
+
+            rooms = await ApiClient.GetRoomsAsync();
+            if (rooms.Count > 0)
+            {
+                selectedRoom = rooms.First();
+                currentRoomId = selectedRoom.Id;
+            }
+
+            var hubUrl = Configuration["ApiUrl"] + "/chat";
+
+            ChatService.OnMessageReceived += HandleMessageReceived;
+            ChatService.OnReconnected += HandleReconnected;
+            ChatService.OnClosed += HandleClosed;
+
+            await ChatService.ConnectAsync(hubUrl);
+            isConnected = true;
+            await ChatService.JoinRoomAsync(currentRoomId);
+            messages = await ApiClient.GetMessagesAsync(currentRoomId);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error al conectar: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private async Task SelectRoom(RoomModel room)
+    {
+        if (selectedRoom is not null)
+        {
+            await ChatService.LeaveRoomAsync(selectedRoom.Id);
+        }
+
+        selectedRoom = room;
+        currentRoomId = room.Id;
+        await ChatService.JoinRoomAsync(currentRoomId);
+        messages = await ApiClient.GetMessagesAsync(currentRoomId);
+    }
+
+    private async void HandleMessageReceived(MessageModel message)
+    {
+        try
+        {
+            messages.Add(message);
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error al recibir mensaje: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private async void HandleReconnected()
+    {
+        try
+        {
+            isConnected = true;
+            await ChatService.JoinRoomAsync(currentRoomId);
+            Snackbar.Add("Reconectado al servidor", Severity.Success);
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error en reconexion: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private async void HandleClosed(string error)
+    {
+        try
+        {
+            isConnected = false;
+            Snackbar.Add($"Conexion perdida: {error}", Severity.Warning);
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error al cerrar: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private async Task SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(messageText)) return;
+
+        await ChatService.SendMessageAsync(currentRoomId, currentUserId, Username, messageText);
+        messageText = string.Empty;
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SendMessage();
+        }
+    }
+
+    private void Logout()
+    {
+        Navigation.NavigateTo("/");
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        ChatService.OnMessageReceived -= HandleMessageReceived;
+        ChatService.OnReconnected -= HandleReconnected;
+        ChatService.OnClosed -= HandleClosed;
+
+        try
+        {
+            await ChatService.LeaveRoomAsync(currentRoomId);
+        }
+        catch
+        {
+            // La conexion puede estar cerrada
+        }
+    }
+}
