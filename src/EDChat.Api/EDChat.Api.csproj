@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.3" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.12.36" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EDChat.Data\EDChat.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 using EDChat.Api.DTOs;
-using EDChat.Api.Models;
+using EDChat.Data.Entities;
 
 namespace EDChat.Api.Mappers;
 
@@ -27,17 +27,6 @@ public static class DtoMappers
 
     extension(Message message)
     {
-        public MessageDto ToDto() => new(message.Id, message.Content, message.SentAt, message.UserId, message.Username, message.RoomId);
-    }
-
-    extension(CreateMessageDto dto)
-    {
-        public Message ToEntity(int roomId) => new()
-        {
-            Content = dto.Content,
-            UserId = dto.UserId,
-            Username = dto.Username,
-            RoomId = roomId
-        };
+        public MessageDto ToDto() => new(message.Id, message.Content, message.SentAt, message.UserId, message.User.Username, message.RoomId);
     }
 }

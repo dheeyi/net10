@@ -1,6 +1,7 @@
 using EDChat.Api.DTOs;
 using EDChat.Api.Mappers;
-using EDChat.Api.Services;
+using EDChat.Data.Entities;
+using EDChat.Data.Repositories;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace EDChat.Api.Endpoints;
@@ -11,36 +12,50 @@ public static class RoomEndpoints
     {
         var group = app.MapGroup("/api/rooms").WithTags("Rooms");
 
-        group.MapGet("/", (ChatStore store) =>
-            TypedResults.Ok(store.GetAllRooms().Select(r => r.ToDto())))
+        group.MapGet("/", async (IRepository<Room> repo) =>
+            TypedResults.Ok((await repo.GetAllAsync()).Select(r => r.ToDto())))
             .WithName("GetAllRooms")
             .WithSummary("Obtiene todas las salas");
 
-        group.MapPost("/", (CreateRoomDto dto, ChatStore store) =>
+        group.MapPost("/", async (CreateRoomDto dto, IRepository<Room> repo) =>
         {
             var room = dto.ToEntity();
-            store.CreateRoom(room);
+            await repo.CreateAsync(room);
             return TypedResults.Created($"/api/rooms/{room.Id}", room.ToDto());
         })
+            .AddEndpointFilter(async (context, next) =>
+            {
+                var dto = context.Arguments.OfType<CreateRoomDto>().Single();
+                var repo = context.HttpContext.RequestServices.GetRequiredService<IRepository<Room>>();
+                var rooms = await repo.GetAllAsync();
+                if (rooms.Any(r => r.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase)))
+                    return TypedResults.Conflict("Ya existe una sala con ese nombre");
+                return await next(context);
+            })
             .WithName("CreateRoom")
             .WithSummary("Crea una nueva sala");
 
-        group.MapPut("/{id:int}", Results<Ok<RoomDto>, NotFound> (int id, UpdateRoomDto dto, ChatStore store) =>
+        group.MapPut("/{id:int}", async Task<Results<Ok<RoomDto>, NotFound>> (int id, UpdateRoomDto dto, IRepository<Room> repo) =>
         {
-            var updated = store.UpdateRoom(id, dto.Name, dto.Description);
-            if (updated is null)
+            var room = await repo.GetByIdAsync(id);
+            if (room is null)
                 return TypedResults.NotFound();
 
-            return TypedResults.Ok(updated.ToDto());
+            room.Name = dto.Name;
+            room.Description = dto.Description;
+            await repo.UpdateAsync(room);
+            return TypedResults.Ok(room.ToDto());
         })
             .WithName("UpdateRoom")
             .WithSummary("Actualiza una sala existente");
 
-        group.MapDelete("/{id:int}", Results<NoContent, NotFound> (int id, ChatStore store) =>
+        group.MapDelete("/{id:int}", async Task<Results<NoContent, NotFound>> (int id, IRepository<Room> repo) =>
         {
-            if (!store.DeleteRoom(id))
+            var room = await repo.GetByIdAsync(id);
+            if (room is null)
                 return TypedResults.NotFound();
 
+            await repo.DeleteAsync(id);
             return TypedResults.NoContent();
         })
             .WithName("DeleteRoom")

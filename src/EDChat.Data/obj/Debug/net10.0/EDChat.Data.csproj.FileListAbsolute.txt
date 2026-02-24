@@ -1,0 +1,13 @@
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/bin/Debug/net10.0/EDChat.Data.deps.json
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/bin/Debug/net10.0/EDChat.Data.dll
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/bin/Debug/net10.0/EDChat.Data.pdb
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/EDChat.Data.csproj.AssemblyReference.cache
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/EDChat.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/EDChat.Data.AssemblyInfoInputs.cache
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/EDChat.Data.AssemblyInfo.cs
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/EDChat.Data.csproj.CoreCompileInputs.cache
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/EDChat.Data.sourcelink.json
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/EDChat.Data.dll
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/refint/EDChat.Data.dll
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/EDChat.Data.pdb
+/Users/williambarra/Projects/edteam/net10/src/EDChat.Data/obj/Debug/net10.0/ref/EDChat.Data.dll

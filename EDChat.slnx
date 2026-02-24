@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/EDChat.Api/EDChat.Api.csproj" />
+    <Project Path="src/EDChat.Data/EDChat.Data.csproj" />
     <Project Path="src/EDChat.Web/EDChat.Web.csproj" />
   </Folder>
 </Solution>

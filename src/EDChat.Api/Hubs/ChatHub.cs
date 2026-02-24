@@ -1,21 +1,20 @@
-using EDChat.Api.DTOs;
 using EDChat.Api.Mappers;
-using EDChat.Api.Models;
-using EDChat.Api.Services;
+using EDChat.Data.Entities;
+using EDChat.Data.Repositories;
 using Microsoft.AspNetCore.SignalR;
 
 namespace EDChat.Api.Hubs;
 
-public class ChatHub(ChatStore store) : Hub<IChatClient>
+public class ChatHub(MessageRepository messageRepo) : Hub<IChatClient>
 {
     public async Task JoinRoom(int roomId)
     {
-        await Groups.AddToGroupAsync(Context.ConnectionId, roomId.ToString());
+        await Groups.AddToGroupAsync(Context.ConnectionId, $"room-{roomId}");
     }
 
     public async Task LeaveRoom(int roomId)
     {
-        await Groups.RemoveFromGroupAsync(Context.ConnectionId, roomId.ToString());
+        await Groups.RemoveFromGroupAsync(Context.ConnectionId, $"room-{roomId}");
     }
 
     public async Task SendMessage(int roomId, int userId, string username, string content)
@@ -23,15 +22,13 @@ public class ChatHub(ChatStore store) : Hub<IChatClient>
         var message = new Message
         {
             Content = content,
-            UserId = userId,
-            Username = username,
-            RoomId = roomId
+            RoomId = roomId,
+            UserId = userId
         };
 
-        store.CreateMessage(message);
+        await messageRepo.CreateAsync(message);
+        message.User = new User { Id = userId, Username = username };
 
-        var dto = message.ToDto();
-
-        await Clients.Group(roomId.ToString()).ReceiveMessage(dto);
+        await Clients.Group($"room-{roomId}").ReceiveMessage(message.ToDto());
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EDChat.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8807485eb29e71aa9061cb0bd5a0f5dcc8f975ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f323cc99c4133ec4ea8f7b5c24c26fc133c8676")]
 [assembly: System.Reflection.AssemblyProductAttribute("EDChat.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EDChat.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

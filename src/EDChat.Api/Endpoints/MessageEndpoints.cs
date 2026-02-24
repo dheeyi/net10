@@ -1,6 +1,5 @@
-using EDChat.Api.DTOs;
 using EDChat.Api.Mappers;
-using EDChat.Api.Services;
+using EDChat.Data.Repositories;
 
 namespace EDChat.Api.Endpoints;
 
@@ -10,19 +9,10 @@ public static class MessageEndpoints
     {
         var group = app.MapGroup("/api/rooms/{roomId:int}/messages").WithTags("Messages");
 
-        group.MapGet("/", (int roomId, ChatStore store) =>
-            TypedResults.Ok(store.GetMessagesByRoom(roomId).Select(m => m.ToDto())))
+        group.MapGet("/", async (int roomId, MessageRepository repo) =>
+            TypedResults.Ok((await repo.GetByRoomIdAsync(roomId)).Select(m => m.ToDto())))
             .WithName("GetRoomMessages")
             .WithSummary("Obtiene los mensajes de una sala");
-
-        group.MapPost("/", (int roomId, CreateMessageDto dto, ChatStore store) =>
-        {
-            var message = dto.ToEntity(roomId);
-            store.CreateMessage(message);
-            return TypedResults.Created($"/api/rooms/{roomId}/messages/{message.Id}", message.ToDto());
-        })
-            .WithName("CreateMessage")
-            .WithSummary("Envia un mensaje a una sala");
 
         return group;
     }
