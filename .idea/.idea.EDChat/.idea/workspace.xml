@@ -7,59 +7,7 @@
     <projectFile profileName="https">src/EDChat.Web/EDChat.Web.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3bf7c87-890e-4911-9468-942d3e797c35" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.EDChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EDChat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EDChat.slnx" beforeDir="false" afterPath="$PROJECT_DIR$/EDChat.slnx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/DTOs/MessageDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/DTOs/MessageDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/EDChat.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/EDChat.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/Endpoints/MessageEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/Endpoints/MessageEndpoints.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/Endpoints/RoomEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/Endpoints/RoomEndpoints.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/Endpoints/UserEndpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/Endpoints/UserEndpoints.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/Hubs/ChatHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/Hubs/ChatHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/Mappers/DtoMappers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/Mappers/DtoMappers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/EDChat.Api.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/EDChat.Api.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/EDChat.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/EDChat.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/EDChat.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/EDChat.Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/EDChat.Api.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/EDChat.Api.runtimeconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/bin/Debug/net10.0/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/EDChat.Api.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/ref/EDChat.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/ref/EDChat.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/refint/EDChat.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/refint/EDChat.Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/rpswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/Debug/net10.0/rpswa.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/EDChat.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/EDChat.Api.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/EDChat.Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/EDChat.Api.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/EDChat.Api.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/EDChat.Api.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Api/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/bin/Debug/net10.0/EDChat.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/bin/Debug/net10.0/EDChat.Web.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/bin/Debug/net10.0/EDChat.Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/bin/Debug/net10.0/EDChat.Web.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/EDChat.Web.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/ref/EDChat.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/ref/EDChat.Web.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/refint/EDChat.Web.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/refint/EDChat.Web.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/Debug/net10.0/rjsmrazor.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EDChat.Web/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/EDChat.Web/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="b3bf7c87-890e-4911-9468-942d3e797c35" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +35,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.Unnamed.executor": "Debug",
     ".NET Project.Unnamed.executor": "Debug",
-    "XThreadsFramesViewSplitterKey": "0.96075356",
+    "XThreadsFramesViewSplitterKey": "0.9600639",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "main"
   }
